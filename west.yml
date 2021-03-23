@@ -1,0 +1,24 @@
+manifest:
+  defaults:
+    remote: mine
+
+  remotes:
+    - name: mine
+      url-base: https://github.com/mrrosen
+
+    - name: zephyr
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    # Cut down on cloning time, just import one project
+    - name: zephyr
+      path: zephyr
+      remote: zephyr
+      revision: v2.5.0
+      import:
+        name-whitelist:
+          - littlefs
+
+  self:
+    path: manifest
+    west-commands: scripts/west-commands.yml
